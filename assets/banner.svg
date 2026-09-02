@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic Delegation and the Language Frontier</title>
+  <desc id="desc">A developer directs an AI agent across a widening frontier of programming languages.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081426"/><stop offset="0.55" stop-color="#123b56"/><stop offset="1" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="band" x1="0" x2="1"><stop stop-color="#2dd4bf" stop-opacity=".2"/><stop offset="1" stop-color="#fbbf24" stop-opacity=".75"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1280" height="360" rx="28" fill="url(#bg)"/>
+  <g opacity=".16" stroke="#bff7ee"><path d="M0 70H1280M0 140H1280M0 210H1280M0 280H1280"/><path d="M110 0V360M250 0V360M390 0V360M530 0V360M670 0V360M810 0V360M950 0V360M1090 0V360"/></g>
+  <text x="74" y="92" fill="#5eead4" font-family="Segoe UI,Arial,sans-serif" font-size="21" letter-spacing="4">AI ECONOMIC MODELLING · REPOSITORY 03</text>
+  <text x="72" y="157" fill="white" font-family="Segoe UI,Arial,sans-serif" font-size="49" font-weight="700">Agentic Delegation</text>
+  <text x="74" y="203" fill="#d7f9f2" font-family="Segoe UI,Arial,sans-serif" font-size="29">and the Language Frontier of Software Developers</text>
+  <text x="75" y="253" fill="#a7c8d8" font-family="Segoe UI,Arial,sans-serif" font-size="20">Quispe &amp; Xu · arXiv:2605.25438v2 · July 2026</text>
+  <g transform="translate(785 58)">
+    <path d="M32 230H420" stroke="#d7f9f2" stroke-width="3"/><path d="M420 230l-14-8v16z" fill="#d7f9f2"/>
+    <rect x="165" y="122" width="150" height="108" fill="url(#band)" stroke="#fbbf24" stroke-width="2"/>
+    <path d="M165 112V244M315 112V244" stroke="#fbbf24" stroke-width="3" stroke-dasharray="6 6"/>
+    <circle cx="165" cy="230" r="7" fill="#5eead4" filter="url(#glow)"/><circle cx="315" cy="230" r="7" fill="#fbbf24" filter="url(#glow)"/>
+    <text x="135" y="272" fill="#bff7ee" font-family="Segoe UI,Arial,sans-serif" font-size="18">Tᴰ</text><text x="297" y="272" fill="#fde68a" font-family="Segoe UI,Arial,sans-serif" font-size="18">T¹</text>
+    <text x="178" y="153" fill="white" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="600">ACTIVATION</text><text x="213" y="178" fill="white" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="600">BAND</text>
+    <text x="32" y="218" fill="#94a3b8" font-family="Segoe UI,Arial,sans-serif" font-size="15">inactive</text><text x="337" y="218" fill="#d7f9f2" font-family="Segoe UI,Arial,sans-serif" font-size="15">active</text>
+  </g>
+</svg>
+

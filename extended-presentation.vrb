@@ -1,0 +1,30 @@
+\frametitle{14. Proposition 3: paper $\rightarrow $ Lean $\rightarrow $ proof}
+\scriptsize
+\textbf{Paper statement.} If $0\le p^1_k\le p^2_k\le1$, then
+$\Delta C(s)=\sum_{k\in U}[(1-p^1_k)^{s+1}-(1-p^2_k)^{s+1}]\ge0$; when
+$U\ne\varnothing$ and $p^1_k=0<p^2_k<1$, the gap is strictly increasing and concave.
+
+\textbf{Lean translation and proof fragment.}
+\begin{lstlisting}[language={}]
+theorem dynamic_cumulative_language_effect :
+  dynamic_cumulative_language_effectSpec := by
+  intro Language _ unfamiliar p1 p2 hHazards
+  dsimp; constructor
+  case left =>
+    intro s; apply Finset.sum_nonneg; intro k hk
+    have h := hHazards k hk
+    -- apply power monotonicity to 0 <= 1-p2 <= 1-p1
+    ...
+  case right =>
+    -- closed-frontier branch: geometric powers fall
+    ...
+\end{lstlisting}
+\textbf{Plain English.} A higher first-use hazard lowers every survival
+probability $(1-p)^{s+1}$; summing those nonnegative differences proves the
+weak result. Strict geometric decay supplies growth and diminishing increments.
+
+\begin{block}{Verified build}
+\texttt{lake build QX26AgenticDelegation}: PASS (8318 jobs). Five of five
+selected endpoints compile with no \texttt{sorry}; EconCSLib \texttt{--fast}
+check also passed. Source-fidelity audits remain pending, so status is partial.
+\end{block}

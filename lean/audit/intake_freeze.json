@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "paper": "QX26AgenticDelegation",
+  "acceptance_credential": false,
+  "future_paper_intake_only": true,
+  "state": "draft",
+  "inventory_scope": "complete named theoretical source surface",
+  "inventory_complete": false,
+  "source_item_identity": "source-location+normalized-statement-sha256-v1",
+  "source_artifact_path": "papers/QX26AgenticDelegation/source-audited.bin",
+  "source_artifact_sha256": "1b3e7968697bcb306f7c96fbdb60e93d8c49eb805afb15ce00271084da24a296",
+  "source_version": "arXiv v2, 2026-07-07",
+  "source_text_artifact": null,
+  "items": [
+    {
+      "source_item": "Proposition 1 (Frontier expansion), label prop:frontier",
+      "source_location": "sections/03_theory.tex:155-159",
+      "source_statement_sha256": "ac7b5fdc4cf117efa58cb5003097a17d9a6697ab25a8653fab9bf97ef41a4f50",
+      "source_kind": "proposition",
+      "spec_declaration": "frontier_expansionSpec",
+      "proof_declaration": "frontier_expansion",
+      "dependency_order": 1,
+      "depends_on_source_items": [],
+      "owner": "unassigned",
+      "source_atoms": [],
+      "acceptance_conditions": [
+        "all exact source atoms are byte-pinned and semantically complete",
+        "the transparent Spec is equivalent to the full source target",
+        "every visible premise has source or checked derivation provenance",
+        "the proof closes without paper-local placeholders"
+      ]
+    },
+    {
+      "source_item": "Proposition 2 (Activation band for unfamiliar languages), label prop:band",
+      "source_location": "sections/03_theory.tex:165-184",
+      "source_statement_sha256": "d4612755080ba4e1b2edaf0e1ffb8f82dcb8ce4ec297b2fd14a93ac1f83db5f1",
+      "source_kind": "proposition",
+      "spec_declaration": "activation_bandSpec",
+      "proof_declaration": "activation_band",
+      "dependency_order": 2,
+      "depends_on_source_items": [],
+      "owner": "unassigned",
+      "source_atoms": [],
+      "acceptance_conditions": [
+        "all exact source atoms are byte-pinned and semantically complete",
+        "the transparent Spec is equivalent to the full source target",
+        "every visible premise has source or checked derivation provenance",
+        "the proof closes without paper-local placeholders"
+      ]
+    },
+    {
+      "source_item": "Proposition 3 (Dynamic cumulative-language effect), label prop:dynamic",
+      "source_location": "sections/03_theory.tex:282-296",
+      "source_statement_sha256": "6303ee9013c0cdbc4c5d84b81f3d79825f50d44821c1251d8420d6f83b1e0f53",
+      "source_kind": "proposition",
+      "spec_declaration": "dynamic_cumulative_language_effectSpec",
+      "proof_declaration": "dynamic_cumulative_language_effect",
+      "dependency_order": 3,
+      "depends_on_source_items": [],
+      "owner": "unassigned",
+      "source_atoms": [],
+      "acceptance_conditions": [
+        "all exact source atoms are byte-pinned and semantically complete",
+        "the transparent Spec is equivalent to the full source target",
+        "every visible premise has source or checked derivation provenance",
+        "the proof closes without paper-local placeholders"
+      ]
+    },
+    {
+      "source_item": "Proposition 4 (Specialist and ability heterogeneity), label prop:specialist",
+      "source_location": "sections/10_appendix.tex:138-150",
+      "source_statement_sha256": "6b596ea80158669515a25e0ab10cd555cf9178b2227d229db6c403a2c1c8e81d",
+      "source_kind": "proposition",
+      "spec_declaration": "specialist_and_ability_heterogeneitySpec",
+      "proof_declaration": "specialist_and_ability_heterogeneity",
+      "dependency_order": 4,
+      "depends_on_source_items": [],
+      "owner": "unassigned",
+      "source_atoms": [],
+      "acceptance_conditions": [
+        "all exact source atoms are byte-pinned and semantically complete",
+        "the transparent Spec is equivalent to the full source target",
+        "every visible premise has source or checked derivation provenance",
+        "the proof closes without paper-local placeholders"
+      ]
+    },
+    {
+      "source_item": "Proposition 5 (Repository expansion), label prop:repos",
+      "source_location": "sections/10_appendix.tex:251-259",
+      "source_statement_sha256": "966555a1a5e6d3606d8480462215aca6a319b03ff137b3b869085681032061c8",
+      "source_kind": "proposition",
+      "spec_declaration": "repository_expansionSpec",
+      "proof_declaration": "repository_expansion",
+      "dependency_order": 5,
+      "depends_on_source_items": [],
+      "owner": "unassigned",
+      "source_atoms": [],
+      "acceptance_conditions": [
+        "all exact source atoms are byte-pinned and semantically complete",
+        "the transparent Spec is equivalent to the full source target",
+        "every visible premise has source or checked derivation provenance",
+        "the proof closes without paper-local placeholders"
+      ]
+    }
+  ],
+  "seal_requirements": {
+    "state": "sealed",
+    "inventory_complete": true,
+    "every_item_has_owner": true,
+    "dependency_order_is_total": true,
+    "every_source_atom_has_locator_exact_byte_slice_quote_and_sha256": true,
+    "pdf_atoms_use_pinned_normalized_source_text_receipt": true
+  }
+}

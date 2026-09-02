@@ -1,0 +1,259 @@
+\documentclass[aspectratio=169,10pt]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,booktabs,graphicx,listings,tikz}
+\usetikzlibrary{arrows.meta,positioning}
+
+\definecolor{Navy}{RGB}{8,20,38}\definecolor{Teal}{RGB}{15,118,110}
+\definecolor{Mint}{RGB}{45,212,191}\definecolor{Gold}{RGB}{245,158,11}
+\definecolor{Cloud}{RGB}{241,245,249}\definecolor{Ink}{RGB}{30,41,59}
+\setbeamercolor{normal text}{fg=Ink,bg=white}\setbeamercolor{structure}{fg=Teal}
+\setbeamercolor{frametitle}{fg=white,bg=Navy}\setbeamercolor{block title}{fg=white,bg=Teal}
+\setbeamercolor{block body}{fg=Ink,bg=Cloud}\setbeamercolor{alerted text}{fg=Gold}
+\setbeamertemplate{navigation symbols}{}\setbeamertemplate{itemize item}{\color{Mint}$\blacktriangleright$}
+\setbeamertemplate{footline}{\leavevmode\hbox{%
+\begin{beamercolorbox}[wd=.83\paperwidth,ht=2.7ex,dp=1.1ex,leftskip=1em]{author in head/foot}\color{white!80!Navy}Quispe \& Xu (2026) · extended deck\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.17\paperwidth,ht=2.7ex,dp=1.1ex,center]{date in head/foot}\insertframenumber/\inserttotalframenumber\end{beamercolorbox}}}
+\lstset{basicstyle=\ttfamily\scriptsize,keywordstyle=\color{Teal}\bfseries,commentstyle=\color{gray},columns=fullflexible,breaklines=true,showstringspaces=false}
+
+\title{Agentic Delegation and the Language Frontier}
+\subtitle{Model, evidence, verification boundary, and critique}
+\author{John Barraza}\institute{AI Economic Modelling · Repository 03}\date{September 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]\fill[Navy] (current page.south west) rectangle (current page.north east);\fill[Teal] ([xshift=.64\paperwidth]current page.south west) rectangle (current page.north east);\fill[Gold,opacity=.8] ([xshift=.73\paperwidth,yshift=.18\paperheight]current page.south west) rectangle ([xshift=.85\paperwidth,yshift=.55\paperheight]current page.south west);\end{tikzpicture}
+\color{white}\vspace{1.2em}{\Huge\bfseries Agentic Delegation}\par\vspace{.3em}{\Large and the Language Frontier}\par\vspace{1.1em}{\large Quispe \& Xu (2026), arXiv:2605.25438v2}\par\vfill{\small John Barraza · \url{https://github.com/johnbarraza/ai-03-quispe}}
+\end{frame}
+
+\begin{frame}{1. Citation audit: the discrepancy is real}
+\textbf{Current v2:} Alexander Quispe and Kevin Xu, “Agentic Delegation and the Language Frontier of Software Developers: A Model and Evidence from Claude Code on GitHub,” July 8, 2026.
+\vspace{.8em}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.48\textwidth}\begin{block}{Earlier circulation}“Coding Beyond Your Training: Claude Code and the Technological Frontier of Software Developers,” Alexander Quispe only.\end{block}\end{column}
+\begin{column}{.48\textwidth}\begin{alertblock}{Correct status}Preliminary, unrefereed \textbf{arXiv economics preprint}; not NBER. v1: May 25. v2: July 7; PDF dated July 8.\end{alertblock}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{2. Question, claim, and non-claim}
+\begin{block}{Research question}Does agentic AI expand the languages in which a developer can ship working code, beyond accelerating work in familiar languages?\end{block}
+\vspace{.5em}
+\textbf{Claim:} the developer's observed \alert{production frontier} expands.
+\vspace{.5em}
+
+\textbf{Non-claim:} the developer learns to code unassisted in the new language. Delegated output remains joint production: the human selects, specifies, verifies, and ships.
+\vspace{.5em}
+
+\textbf{Unit:} developer $i$ × language $k$ × month $t$.
+\end{frame}
+
+\begin{frame}{3. Three capabilities}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.31\textwidth}\begin{block}{Solo $S$}Expected human match $s\mu$, activation cost $b$, and CARA risk penalty from match uncertainty.\end{block}\end{column}
+\begin{column}{.31\textwidth}\begin{block}{Augmentation $C$}Adds $\gamma s-r_C$: suggestions are useful only with language-specific foothold $s$.\end{block}\end{column}
+\begin{column}{.31\textwidth}\begin{block}{Delegation $D$}Agent executes share $\lambda$; output uses general ability $a$, capability $z(A)$, verification cost $\kappa$, and agent-error risk.\end{block}\end{column}
+\end{columns}
+\vspace{.8em}
+\centering\large One modelling choice drives the result: \alert{AI supplies delegated execution, not merely a substitutable productivity input.}
+\end{frame}
+
+\begin{frame}{4. The developer's choice is not effort}
+\[
+M^1=\{S,C\},\qquad M^2=\{S,C,D\},
+\]
+\[
+V^g_{ikt}=\max_{m\in M^g}V^m_{ikt},\qquad
+Z^g_{ikt}=\mathbf 1\{V^g_{ikt}\ge0\},\qquad N^g_{it}=\sum_k Z^g_{ikt}.
+\]
+\begin{block}{Economic decision}
+Given an opportunity, choose the mode with the highest certainty-equivalent surplus, then enter only if that surplus is nonnegative.
+\end{block}
+\textbf{Audit point:} there is no endogenous continuous effort variable. An “agent effort problem” belongs to a different paper/model.
+\end{frame}
+
+\begin{frame}{5. Thresholds and the delegation advantage}
+\small
+\[
+T^S=b-s\mu+\frac{\rho s^2}{2\pi},\qquad
+T^1=T^S-\max\{0,\gamma s-r_C\}.
+\]
+For unfamiliar $k$, Assumption 1 imposes $\gamma s-r_C\le0$, so $T^1=T^S$. Define
+\[
+B\equiv T^S-T^D
+=\underbrace{\lambda[az(A)-s\mu]}_{\text{execution substitution}}
+-\underbrace{\kappa(a,s)-r_D}_{\text{verification + compute}}
++\underbrace{\frac{\rho}{2}\left[\frac{(2\lambda-\lambda^2)s^2}{\pi}-\sigma_D^2\right]}_{\text{risk substitution}}.
+\]
+\begin{alertblock}{Condition}Delegation changes entry only when $B>0$. Better verification technology can enlarge the band; it does not guarantee a positive band everywhere.\end{alertblock}
+\end{frame}
+
+\begin{frame}{6. Propositions 1--2}
+\textbf{Proposition 1 (weak frontier expansion).}
+\[
+M^1\subset M^2\Longrightarrow Z^2_{ikt}\ge Z^1_{ikt}\Longrightarrow N^2_{it}\ge N^1_{it}.
+\]
+The agent can always be ignored; strict expansion is not automatic.
+\vspace{.8em}
+
+\textbf{Proposition 2 (activation band).} For unfamiliar $k$, Assumption 1 and $B>0$ imply
+\[
+\boxed{Z^2_{ikt}-Z^1_{ikt}=\mathbf 1\{T^D_{ikt}\le\omega_{ikt}<T^1_{ikt}\}}.
+\]
+With continuous conditional CDF $F$, activation probability is $F(T^1)-F(T^D)$.
+\end{frame}
+
+\begin{frame}{7. Proposition 3: stock and flow}
+If constant first-use hazards satisfy $p^2_{ik}\ge p^1_{ik}$, then
+\[
+\Delta C_i(h)=\sum_{k\in U_i}\left[(1-p^1_{ik})^{h+1}-(1-p^2_{ik})^{h+1}\right]\ge0.
+\]
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.48\textwidth}\begin{block}{Closed frontier}If $p^1=0<p^2$, the cumulative gap grows strictly and concavely over the observed horizon.\end{block}\end{column}
+\begin{column}{.48\textwidth}\begin{alertblock}{Endpoint/domain caveat}With $p^1>0$, monotonic growth needs the paper's additional “no catch-up” inequality; $p^2\ge p^1$ alone gives nonnegativity, not monotonicity.\end{alertblock}\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{8. Data construction}
+\centering\small
+\begin{tabular}{lr}
+\toprule Object & Size \\
+\midrule
+Window & Jan 2024--Apr 2026 (28 months) \\
+Initial / estimation developers & 5,825 / \textbf{5,346} \\
+Treated / not-yet-treated control & \textbf{2,813 / 2,533} \\
+Developer-month rows & \textbf{149,688} \\
+Commits / developer--repository pairs & 3.2m / 133k \\
+Changed files classified by Linguist & \textbf{57m} \\
+Claude-coauthored detection universe & 7.8m commits \\
+\bottomrule
+\end{tabular}
+\vspace{.8em}
+\textbf{Treatment:} first machine-readable Claude co-author trailer. Outcomes use non-merge commits and programming-language files.
+\end{frame}
+
+\begin{frame}{9. Empirical strategy}
+\begin{block}{Estimator}
+Callaway--Sant'Anna group-time ATT, doubly robust, not-yet-treated comparisons, one-month anticipation, varying base periods, 1,000 developer-clustered multiplier-bootstrap draws.
+\end{block}
+\textbf{Four frontier outcomes:} monthly distinct languages, newly used languages, cumulative languages, and Shannon entropy. Repositories and commits are diagnostics.
+\vspace{.6em}
+\begin{alertblock}{Interpretation discipline}
+Conditional parallel trends handles staggered timing and observed pre-period differences. It does not handle a new-project shock that both induces Claude adoption and changes languages.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{10. Main numerical results}
+\centering\scriptsize
+\begin{tabular}{lrrrr}
+\toprule Outcome & $e=0$ & $e=1$ & $e=2$ & Simple ATT \\
+\midrule
+Active languages & 2.528 (.063) & 1.227 (.064) & .693 (.067) & 1.178 (.052) \\
+Newly used & 1.193 (.051) & .126 (.034) & $-.018$ (.038) & .294 (.030) \\
+Entropy & .382 (.009) & .189 (.011) & .102 (.012) & .172 (.010) \\
+Cumulative & 1.604 (.054) & 1.892 (.063) & 2.072 (.086) & 1.930 (.068) \\
+Repositories & 1.494 (.058) & .838 (.057) & .449 (.057) & .742 (.057) \\
+Monthly commits & 35.080 (2.085) & 21.046 (2.292) & 12.110 (2.609) & 18.677 (2.269) \\
+\bottomrule
+\end{tabular}
+\vspace{.9em}
+\small Active languages roughly triple relative to the .90 pre-mean; new languages are nearly four times the .31 pre-flow. Cumulative languages have significant pre-trends and are descriptive.
+\end{frame}
+
+\begin{frame}{11. Mechanism evidence: headroom}
+\centering\small
+\begin{tabular}{lrr}
+\toprule Adoption-month newly used languages & Specialist & Generalist \\
+\midrule
+High pre-adoption activity & \textbf{.981} (.084) & .301 (.100) \\
+Low pre-adoption activity & \textbf{2.388} (.099) & 1.015 (.092) \\
+\bottomrule
+\end{tabular}
+\vspace{.9em}
+\begin{block}{Matches Proposition 4's headroom margin}
+Within activity halves, narrow-portfolio specialists have more unfamiliar candidates and show much larger first-use effects.
+\end{block}
+The general-ability prediction is not cleanly supported: commit volume is a poor ability proxy and low-volume users show larger measured effects.
+\end{frame}
+
+\begin{frame}{12. Robustness and what it cannot rule out}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.48\textwidth}
+\textbf{Survives:}
+\begin{itemize}
+\item removing first-Claude language;
+\item excluding all Claude commits;
+\item activity conditioning;
+\item stricter pre-activity filters;
+\item competing-agent screens;
+\item placebo dates.
+\end{itemize}
+\end{column}
+\begin{column}{.48\textwidth}
+\begin{alertblock}{Still unresolved}
+A developer may start an unfamiliar-language project and adopt Claude because of that same project. The observed jump can combine treatment with selection on a time-varying shock.
+\end{alertblock}
+\textbf{Correct label:} sharp, robust event-time association consistent with delegation.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{13. Symbolic and handwritten audit}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.49\textwidth}
+\textbf{SymPy result}
+\begin{block}{Exact identity}\texttt{simplify((T\_s - T\_d) - B) == 0}\end{block}
+Rational example: $T^D=-487/1250$, $T^S=81/100$, and band width $B=2999/2500>0$.
+\end{column}
+\begin{column}{.47\textwidth}
+\centering
+\IfFileExists{hand/activation-band-derivation.jpg}{\includegraphics[width=.84\linewidth,height=.58\textheight,keepaspectratio]{hand/activation-band-derivation.jpg}}{\fbox{\parbox[c][.43\textheight][c]{.82\linewidth}{\centering\textbf{Student action required}\par\medskip Add your own photo as\par\texttt{hand/activation-band-}\par\texttt{derivation.jpg}\par\medskip Then recompile.}}}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{14. Proposition 3: paper $\rightarrow$ Lean $\rightarrow$ proof}
+\scriptsize
+\textbf{Paper statement.} If $0\le p^1_k\le p^2_k\le1$, then
+$\Delta C(s)=\sum_{k\in U}[(1-p^1_k)^{s+1}-(1-p^2_k)^{s+1}]\ge0$; when
+$U\ne\varnothing$ and $p^1_k=0<p^2_k<1$, the gap is strictly increasing and concave.
+
+\textbf{Lean translation and proof fragment.}
+\begin{lstlisting}[language={}]
+theorem dynamic_cumulative_language_effect :
+  dynamic_cumulative_language_effectSpec := by
+  intro Language _ unfamiliar p1 p2 hHazards
+  dsimp; constructor
+  case left =>
+    intro s; apply Finset.sum_nonneg; intro k hk
+    have h := hHazards k hk
+    -- apply power monotonicity to 0 <= 1-p2 <= 1-p1
+    ...
+  case right =>
+    -- closed-frontier branch: geometric powers fall
+    ...
+\end{lstlisting}
+\textbf{Plain English.} A higher first-use hazard lowers every survival
+probability $(1-p)^{s+1}$; summing those nonnegative differences proves the
+weak result. Strict geometric decay supplies growth and diminishing increments.
+
+\begin{block}{Verified build}
+\texttt{lake build QX26AgenticDelegation}: PASS (8318 jobs). Five of five
+selected endpoints compile with no \texttt{sorry}; EconCSLib \texttt{--fast}
+check also passed. Source-fidelity audits remain pending, so status is partial.
+\end{block}
+\end{frame}
+
+\begin{frame}{15. Verdict}
+\Large
+The model cleanly shows how delegated execution can expand a \alert{production} frontier through a lower entry threshold.
+\vspace{.8em}
+
+\normalsize
+The data show the predicted activation spike, accumulation pattern, and specialist headroom signature. They do not causally separate delegation from project-driven adoption, and they do not show skill acquisition.
+\vfill
+\small Paper, derivations, audit, and sources: \url{https://github.com/johnbarraza/ai-03-quispe}
+\end{frame}
+
+\end{document}
