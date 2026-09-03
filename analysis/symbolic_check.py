@@ -1,6 +1,6 @@
-"""Symbolic and numerical audit of Quispe--Xu's threshold algebra.
+"""Symbolic and numerical check of Quispe--Xu's threshold algebra.
 
-Run: python analysis/symbolic_audit.py
+Run: python analysis/symbolic_check.py
 """
 
 from sympy import Rational, simplify, symbols

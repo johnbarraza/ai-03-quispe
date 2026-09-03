@@ -29,5 +29,5 @@ precisely the domain the proposition conditions on---no extra assumption is smug
 \begin{block}{Verified build}
 \texttt{lake build QX26AgenticDelegation}: PASS (8318 jobs). Five of five
 selected endpoints compile with no \texttt{sorry}; EconCSLib \texttt{--fast}
-check also passed. Source-fidelity audits remain pending, so status is partial.
+check also passed. Independent source-fidelity review is still pending, so status is partial.
 \end{block}
