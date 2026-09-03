@@ -7,7 +7,6 @@
   <a href="https://doi.org/10.48550/arXiv.2605.25438"><img alt="DOI" src="https://img.shields.io/badge/DOI-10.48550%2FarXiv.2605.25438-2563eb?style=for-the-badge"></a>
   <a href="presentation.pdf"><img alt="Presentación" src="https://img.shields.io/badge/Presentaci%C3%B3n-PDF-f59e0b?style=for-the-badge"></a>
   <a href="presentation.tex"><img alt="LaTeX sources" src="https://img.shields.io/badge/LaTeX-Sources-008080?style=for-the-badge&logo=latex&logoColor=white"></a>
-  <a href="analysis/symbolic_check.py"><img alt="SymPy" src="https://img.shields.io/badge/SymPy-Chequeo-3B5526?style=for-the-badge&logo=sympy&logoColor=white"></a>
   <a href="lean/README.md"><img alt="Lean formalization" src="https://img.shields.io/badge/Lean-5%2F5_proofs-0d9488?style=for-the-badge"></a>
   <a href="LICENSE.md"><img alt="License" src="https://img.shields.io/badge/License-CC_BY_4.0-lightgrey?style=for-the-badge"></a>
 </p>
@@ -15,8 +14,7 @@
 <p align="center">
   <img alt="LaTeX" src="https://img.shields.io/badge/LaTeX-008080?logo=latex&logoColor=white">
   <img alt="Beamer" src="https://img.shields.io/badge/Beamer-1f4e79?logo=latex&logoColor=white">
-  <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white">
-  <img alt="SymPy" src="https://img.shields.io/badge/SymPy-3B5526?logo=sympy&logoColor=white">
+  <img alt="Lean" src="https://img.shields.io/badge/Lean_4-0d9488?logo=lean&logoColor=white">
   <img alt="GitHub" src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white">
 </p>
 
@@ -118,9 +116,8 @@ Esto **no** es evidencia de que los desarrolladores adquieran habilidad en el le
 ai-03-quispe/
 ├── README.md
 ├── assets/banner.svg
-├── analysis/symbolic_check.py
 ├── extensions.md
-├── hand/README.md
+├── hand/derivacion.pdf         # derivación manuscrita propia
 ├── lean/                         # salida completa de EconCSLib QX26AgenticDelegation (5/5 pruebas)
 ├── paper/quispe-xu-2026.pdf
 ├── presentation.tex/.pdf        # deck de 20 minutos
@@ -128,4 +125,4 @@ ai-03-quispe/
 └── LICENSE.md
 ```
 
-Falta que el estudiante agregue después **su propia foto manuscrita** en `hand/`; ningún sustituto generado cuenta.
+La derivación manuscrita propia está en [`hand/derivacion.pdf`](hand/derivacion.pdf).
