@@ -5,10 +5,9 @@
 <p align="center">
   <a href="paper/quispe-xu-2026.pdf"><img alt="Paper" src="https://img.shields.io/badge/Paper-PDF-0f766e?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"></a>
   <a href="https://doi.org/10.48550/arXiv.2605.25438"><img alt="DOI" src="https://img.shields.io/badge/DOI-10.48550%2FarXiv.2605.25438-2563eb?style=for-the-badge"></a>
-  <a href="presentation.pdf"><img alt="Short deck" src="https://img.shields.io/badge/Short_deck-PDF-f59e0b?style=for-the-badge"></a>
-  <a href="extended-presentation.pdf"><img alt="Extended deck" src="https://img.shields.io/badge/Extended_deck-PDF-d97706?style=for-the-badge"></a>
+  <a href="presentation.pdf"><img alt="Presentación" src="https://img.shields.io/badge/Presentaci%C3%B3n-PDF-f59e0b?style=for-the-badge"></a>
   <a href="presentation.tex"><img alt="LaTeX sources" src="https://img.shields.io/badge/LaTeX-Sources-008080?style=for-the-badge&logo=latex&logoColor=white"></a>
-  <a href="analysis/symbolic_audit.py"><img alt="SymPy audit" src="https://img.shields.io/badge/SymPy-Audit-3B5526?style=for-the-badge&logo=sympy&logoColor=white"></a>
+  <a href="analysis/symbolic_check.py"><img alt="SymPy" src="https://img.shields.io/badge/SymPy-Chequeo-3B5526?style=for-the-badge&logo=sympy&logoColor=white"></a>
   <a href="lean/README.md"><img alt="Lean formalization" src="https://img.shields.io/badge/Lean-5%2F5_proofs-0d9488?style=for-the-badge"></a>
   <a href="LICENSE.md"><img alt="License" src="https://img.shields.io/badge/License-CC_BY_4.0-lightgrey?style=for-the-badge"></a>
 </p>
@@ -27,7 +26,7 @@
 
 **Corrección de estado.** Es un preprint de economía en **arXiv**, preliminar y no arbitrado, no un working paper del NBER. La versión 1 se envió el 25 de mayo de 2026; la versión 2 se publicó el 7 de julio y el PDF lleva fecha del 8 de julio. La versión anterior circuló como *Coding Beyond Your Training: Claude Code and the Technological Frontier of Software Developers* y figuraba solo con Alexander Quispe. El paper actual tiene dos autores: **Alexander Quispe y Kevin Xu**.
 
-**Estado de la formalización.** La corrida obligatoria de EconCSLib generó la carpeta completa `QX26AgenticDelegation`. Los cinco endpoints de teorema seleccionados compilan sin `sorry`; `lake build QX26AgenticDelegation` pasó con 8,318 jobs y el chequeo rápido oficial de contribución también pasó. Siendo honestos con el protocolo, el estado sigue siendo **parcialmente formalizado**, porque faltan las auditorías independientes de fidelidad a la fuente de EconCSLib y la firma humana en el dashboard. Ver el [reporte de validación](lean/FINAL_VALIDATION_REPORT.md).
+**Estado de la formalización.** La corrida obligatoria de EconCSLib generó la carpeta completa `QX26AgenticDelegation`. Los cinco endpoints de teorema seleccionados compilan sin `sorry`; `lake build QX26AgenticDelegation` pasó con 8,318 jobs y el chequeo rápido oficial de contribución también pasó. Siendo honestos con el protocolo, el estado sigue siendo **parcialmente formalizado**, porque faltan las revisiones independientes de fidelidad a la fuente de EconCSLib y la firma humana en el dashboard. Ver el [reporte de validación](lean/FINAL_VALIDATION_REPORT.md).
 
 ## La pregunta y el mecanismo único
 
@@ -119,13 +118,12 @@ Esto **no** es evidencia de que los desarrolladores adquieran habilidad en el le
 ai-03-quispe/
 ├── README.md
 ├── assets/banner.svg
-├── analysis/symbolic_audit.py
+├── analysis/symbolic_check.py
 ├── extensions.md
 ├── hand/README.md
 ├── lean/                         # salida completa de EconCSLib QX26AgenticDelegation (5/5 pruebas)
 ├── paper/quispe-xu-2026.pdf
-├── presentation.tex/.pdf        # deck corto
-├── extended-presentation.tex/.pdf
+├── presentation.tex/.pdf        # deck de 20 minutos
 ├── prompts.md
 └── LICENSE.md
 ```
