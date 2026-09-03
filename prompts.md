@@ -2,7 +2,7 @@
 
 This file preserves the relevant AI exchange as used. Verification notes are clearly separated from raw text.
 
-## Exchange 1 — citation trap and requested deliverables
+## Exchange 1: citation trap and requested deliverables
 
 ### User prompt (raw)
 
@@ -41,7 +41,7 @@ This file preserves the relevant AI exchange as used. Verification notes are cle
 
 > I found a substantive conflict in the request: the assignment file designates Quispe & Xu’s 2026 agentic-delegation paper, while the requested “NBER working paper / Propositions 1–3 / continuation-value variance / tool quality” content describes your week-2 Agrawal–Gans–Goldfarb repository almost verbatim. I’m treating the week-3 assignment and designated paper as controlling; I will not mislabel Quispe–Xu as an NBER paper or insert another paper’s propositions.
 
-## Exchange 2 — citation-first test
+## Exchange 2: citation-first test
 
 ### Prompt (raw)
 
@@ -62,7 +62,7 @@ This file preserves the relevant AI exchange as used. Verification notes are cle
 - Adoption-month estimates: active languages +2.528 (SE .063), newly used +1.193 (.051), entropy +.382 (.009), cumulative languages +1.604 (.054).
 - Interpretation: event-time associations, not definitive causal effects.
 
-## Exchange 3 — proposition audit
+## Exchange 3: proposition audit
 
 ### Prompt (raw)
 

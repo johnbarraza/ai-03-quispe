@@ -21,99 +21,99 @@
   <img alt="GitHub" src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white">
 </p>
 
-# Agentic Delegation and the Language Frontier
+# Delegación agéntica y la frontera de lenguajes
 
-> **Verified citation.** Quispe, Alexander, and Kevin Xu. 2026. “Agentic Delegation and the Language Frontier of Software Developers: A Model and Evidence from Claude Code on GitHub.” *arXiv* preprint arXiv:2605.25438v2, July 8, 2026. <https://doi.org/10.48550/arXiv.2605.25438>.
+> **Cita verificada.** Quispe, Alexander, y Kevin Xu. 2026. “Agentic Delegation and the Language Frontier of Software Developers: A Model and Evidence from Claude Code on GitHub.” Preprint de *arXiv* arXiv:2605.25438v2, 8 de julio de 2026. <https://doi.org/10.48550/arXiv.2605.25438>.
 
-**Status correction.** This is a preliminary, unrefereed **arXiv economics preprint**, not an NBER working paper. Version 1 was submitted May 25, 2026; version 2 was posted July 7, and the PDF is dated July 8. The earlier version circulated as *Coding Beyond Your Training: Claude Code and the Technological Frontier of Software Developers* and listed only Alexander Quispe. The current paper has two authors: **Alexander Quispe and Kevin Xu**.
+**Corrección de estado.** Es un preprint de economía en **arXiv**, preliminar y no arbitrado, no un working paper del NBER. La versión 1 se envió el 25 de mayo de 2026; la versión 2 se publicó el 7 de julio y el PDF lleva fecha del 8 de julio. La versión anterior circuló como *Coding Beyond Your Training: Claude Code and the Technological Frontier of Software Developers* y figuraba solo con Alexander Quispe. El paper actual tiene dos autores: **Alexander Quispe y Kevin Xu**.
 
-**Formalization status.** The required EconCSLib run produced the complete `QX26AgenticDelegation` paper folder. All five selected theorem endpoints compile without `sorry`; `lake build QX26AgenticDelegation` passed with 8,318 jobs and the official fast contribution check passed. The honest protocol status is still **partially formalized**, because EconCSLib's independent source-fidelity audits and human dashboard sign-off have not been completed. See the [validation report](lean/FINAL_VALIDATION_REPORT.md).
+**Estado de la formalización.** La corrida obligatoria de EconCSLib generó la carpeta completa `QX26AgenticDelegation`. Los cinco endpoints de teorema seleccionados compilan sin `sorry`; `lake build QX26AgenticDelegation` pasó con 8,318 jobs y el chequeo rápido oficial de contribución también pasó. Siendo honestos con el protocolo, el estado sigue siendo **parcialmente formalizado**, porque faltan las auditorías independientes de fidelidad a la fuente de EconCSLib y la firma humana en el dashboard. Ver el [reporte de validación](lean/FINAL_VALIDATION_REPORT.md).
 
-## The question and the single mechanism
+## La pregunta y el mecanismo único
 
-Does agentic AI expand the set of programming languages in which a developer can ship working code—not merely make the developer faster in languages already known?
+¿La IA agéntica amplía el conjunto de lenguajes de programación en los que un desarrollador puede entregar código que funciona, y no solo lo vuelve más rápido en los lenguajes que ya conoce?
 
-The single mechanism is **delegation lowering a language-specific entry threshold**. Conversational assistance requires enough language-specific skill to read and integrate suggestions. An agent can instead execute from a natural-language specification while the developer specifies, decomposes, and verifies. This can make an unfamiliar-language project profitable without implying that the developer learned the language.
+El mecanismo único es que **la delegación baja un umbral de entrada específico de cada lenguaje**. La asistencia conversacional exige suficiente habilidad en el lenguaje para leer e integrar las sugerencias. Un agente, en cambio, puede ejecutar a partir de una especificación en lenguaje natural mientras el desarrollador especifica, descompone y verifica. Eso puede volver rentable un proyecto en un lenguaje desconocido sin que el desarrollador haya aprendido ese lenguaje.
 
-The model separates three production capabilities:
+El modelo separa tres capacidades de producción:
 
-1. **Solo:** the developer executes using language-specific skill.
-2. **Augmentation:** a conversational assistant adds suggestions proportional to existing skill.
-3. **Delegation:** an agent executes a share of the task, using the developer’s general specification-and-verification ability.
+1. **Solo:** el desarrollador ejecuta con su habilidad específica en el lenguaje.
+2. **Aumentación:** un asistente conversacional agrega sugerencias en proporción a la habilidad existente.
+3. **Delegación:** un agente ejecuta una parte de la tarea, apoyándose en la capacidad general del desarrollador para especificar y verificar.
 
-## The developer’s problem
+## El problema del desarrollador
 
-For developer (i), language (k), and month (t), the developer observes opportunity value (omega_{ikt}) and chooses the best available mode. Before agentic adoption the menu is (M^1=\{S,C\}); afterward it is (M^2=\{S,C,D\}):
+Para el desarrollador $i$, el lenguaje $k$ y el mes $t$, el desarrollador observa el valor de oportunidad $\omega_{ikt}$ y elige el mejor modo disponible. Antes de adoptar el agente el menú es $M^1=\{S,C\}$; después es $M^2=\{S,C,D\}$:
 
 ```math
 V^g_{ikt}=\max_{m\in M^g}V^m_{ikt},\qquad
 Z^g_{ikt}=\mathbf 1\{V^g_{ikt}\ge 0\}.
 ```
 
-The language is used only if its best certainty-equivalent surplus is nonnegative. Payoffs combine opportunity value, activation cost, language-specific skill and uncertain match quality, general ability, AI competence, verification/compute costs, and risk. **There is no continuous effort choice in the paper’s core model.** Calling this an “effort problem” would import a different model; the choice here is discrete mode selection and entry.
+El lenguaje se usa solo si su mejor excedente en equivalente de certeza es no negativo. Los pagos combinan el valor de oportunidad, el costo de activación, la habilidad específica en el lenguaje, la calidad incierta del match, la capacidad general, la competencia de la IA, los costos de verificación y cómputo, y el riesgo. **En el modelo central del paper no hay elección continua de esfuerzo.** Llamarlo un “problema de esfuerzo” importaría otro modelo; aquí la elección es discreta: selección de modo y entrada.
 
-## Main theoretical results
+## Resultados teóricos principales
 
-For an unfamiliar language, Assumption 1 says conversational augmentation does not improve the entry margin, so (T^1=T^S). Delegation has threshold (T^D), and its advantage is (B=T^S-T^D).
+Para un lenguaje desconocido, el Supuesto 1 dice que la aumentación conversacional no mejora el margen de entrada, así que $T^1=T^S$. La delegación tiene umbral $T^D$, y su ventaja es $B=T^S-T^D$.
 
-**Proposition 1 — weak frontier expansion.** Adding delegation cannot remove an option:
+**Proposición 1 (expansión débil de la frontera).** Agregar delegación no puede quitar una opción:
 
 ```math
 M^1\subset M^2 \quad\Longrightarrow\quad Z^2_{ikt}\ge Z^1_{ikt},\qquad N^2_{it}\ge N^1_{it}.
 ```
 
-**Proposition 2 — activation band.** If the language is unfamiliar, augmentation requires a foothold, and delegation strictly lowers its threshold ((B>0)), then:
+**Proposición 2 (banda de activación).** Si el lenguaje es desconocido, la aumentación necesita un punto de apoyo y la delegación baja estrictamente su umbral ($B>0$), entonces:
 
 ```math
 Z^2_{ikt}-Z^1_{ikt}=\mathbf 1\{T^D_{ikt}\le\omega_{ikt}<T^1_{ikt}\}.
 ```
 
-Thus the agent activates opportunities in the middle: too weak for solo/conversational production, but strong enough under delegation. With a continuous conditional CDF (F), the per-language activation probability is (F(T^1)-F(T^D)).
+Es decir, el agente activa las oportunidades del medio: demasiado débiles para producción solo o conversacional, pero suficientes bajo delegación. Con una CDF condicional continua $F$, la probabilidad de activación por lenguaje es $F(T^1)-F(T^D)$.
 
-**Proposition 3 — stock-flow implication.** If the per-period first-use hazard is weakly higher under delegation, (p^2_{ik}\ge p^1_{ik}), the expected cumulative-language effect is nonnegative. In the closed-frontier benchmark (p^1_{ik}=0<p^2_{ik}), it grows strictly and concavely over the observed horizon. Hence first uses may spike and revert while cumulative breadth continues rising.
+**Proposición 3 (implicación de stock y flujo).** Si el hazard de primer uso por período es débilmente mayor bajo delegación, $p^2_{ik}\ge p^1_{ik}$, el efecto acumulado esperado sobre los lenguajes es no negativo. En el benchmark de frontera cerrada $p^1_{ik}=0<p^2_{ik}$, crece de forma estricta y cóncava a lo largo del horizonte observado. Por eso los primeros usos pueden dispararse y revertir mientras la amplitud acumulada sigue subiendo.
 
-The longer threshold algebra, dynamic formula, assumptions, and endpoint caveat are in [`extensions.md`](extensions.md).
+El álgebra de umbrales más larga, la fórmula dinámica, los supuestos y la salvedad en los extremos del dominio están en [`extensions.md`](extensions.md).
 
-## Data and empirical design
+## Datos y diseño empírico
 
-The balanced panel spans **January 2024–April 2026 (28 months)**. The initial panel has 5,825 developers; after requiring pre-adoption activity and excluding detectable prior users of competing agents, the estimation sample has:
+El panel balanceado va de **enero de 2024 a abril de 2026 (28 meses)**. El panel inicial tiene 5,825 desarrolladores; tras exigir actividad previa a la adopción y excluir a usuarios detectables de agentes competidores, la muestra de estimación es:
 
-| Object | Size |
+| Objeto | Tamaño |
 |---|---:|
-| Developers | **5,346** |
-| Treated / not-yet-treated controls | **2,813 / 2,533** |
-| Developer-month observations | **149,688** |
-| Reconstructed commits | **3.2 million** |
-| Developer–repository pairs | **133,000** |
-| Changed files classified with GitHub Linguist | **57 million** |
-| Claude-coauthored commits in treatment-detection universe | **7.8 million** |
+| Desarrolladores | **5,346** |
+| Tratados / controles not-yet-treated | **2,813 / 2,533** |
+| Observaciones desarrollador-mes | **149,688** |
+| Commits reconstruidos | **3.2 millones** |
+| Pares desarrollador–repositorio | **133,000** |
+| Archivos modificados clasificados con GitHub Linguist | **57 millones** |
+| Commits con coautoría de Claude en el universo de detección | **7.8 millones** |
 
-Adoption is the first commit with a machine-readable Claude co-author trailer. The paper estimates doubly robust Callaway–Sant’Anna staggered-adoption event studies, using not-yet-treated developers, one month of anticipation, varying base periods, and 1,000 developer-clustered multiplier-bootstrap iterations.
+La adopción es el primer commit con un trailer de coautoría de Claude legible por máquina. El paper estima event studies de adopción escalonada de Callaway–Sant’Anna, doblemente robustos, usando desarrolladores not-yet-treated, un mes de anticipación, períodos base variables y 1,000 iteraciones de bootstrap multiplicador agrupadas por desarrollador.
 
-## Main empirical results
+## Resultados empíricos principales
 
-At adoption ((e=0)):
+En la adopción ($e=0$):
 
-| Outcome | Estimate | Bootstrap SE | Reference point |
+| Resultado | Estimación | EE bootstrap | Punto de referencia |
 |---|---:|---:|---|
-| Active programming languages | **+2.528** | 0.063 | pre-adoption mean 0.90 |
-| Newly used languages | **+1.193** | 0.051 | pre-adoption monthly flow 0.31 |
-| Language entropy | **+0.382** | 0.009 | pre-adoption mean 0.15 |
-| Cumulative languages | **+1.604** | 0.054 | rises to 1.892 at (e=1), 2.072 at (e=2) |
-| Repositories | **+1.494** | 0.058 | activity diagnostic |
-| Monthly commits | **+35.080** | 2.085 | activity diagnostic |
+| Lenguajes de programación activos | **+2.528** | 0.063 | media pre-adopción 0.90 |
+| Lenguajes usados por primera vez | **+1.193** | 0.051 | flujo mensual pre-adopción 0.31 |
+| Entropía de lenguajes | **+0.382** | 0.009 | media pre-adopción 0.15 |
+| Lenguajes acumulados | **+1.604** | 0.054 | sube a 1.892 en $e=1$, 2.072 en $e=2$ |
+| Repositorios | **+1.494** | 0.058 | diagnóstico de actividad |
+| Commits mensuales | **+35.080** | 2.085 | diagnóstico de actividad |
 
-Active languages remain higher at (e=1) (**+1.227**, SE 0.064) and (e=2) (**+0.693**, SE 0.067). Newly used languages fall to **+0.126** (SE 0.034) at (e=1) and are statistically indistinguishable from zero at (e=2), matching the predicted flow-versus-stock pattern. Among high-ability developers, specialists add **0.981** new languages at adoption versus **0.301** for generalists; among low-ability developers the comparison is **2.388** versus **1.015**.
+Los lenguajes activos siguen más altos en $e=1$ (**+1.227**, EE 0.064) y $e=2$ (**+0.693**, EE 0.067). Los lenguajes usados por primera vez caen a **+0.126** (EE 0.034) en $e=1$ y son estadísticamente indistinguibles de cero en $e=2$, lo que calza con el patrón de flujo frente a stock que predice el modelo. Entre los desarrolladores de alta capacidad, los especialistas agregan **0.981** lenguajes nuevos en la adopción frente a **0.301** de los generalistas; entre los de baja capacidad la comparación es **2.388** frente a **1.015**.
 
-The results survive removing the first-Claude language, excluding every Claude-coauthored commit, conditioning on activity, stricter activity filters, and screening competing agents. The cumulative outcome has significant pre-trends, so the authors correctly treat it as descriptive rather than headline causal evidence.
+Los resultados sobreviven a quitar el primer lenguaje usado con Claude, excluir todo commit con coautoría de Claude, condicionar por actividad, aplicar filtros de actividad más estrictos y descartar agentes competidores. El resultado acumulado tiene pre-tendencias significativas, así que los autores hacen bien en tratarlo como descriptivo y no como evidencia causal de titular.
 
-## Economic conclusion and identification limit
+## Conclusión económica y límite de identificación
 
-The evidence is consistent with agentic AI expanding a developer’s **production frontier**: general specification-and-verification ability can be deployed across languages even when language-specific execution skill is low. The comparative advantage of generalists in reasoning may therefore become usable in domains previously blocked by specialized implementation costs.
+La evidencia es consistente con que la IA agéntica amplía la **frontera de producción** de un desarrollador: la capacidad general para especificar y verificar puede desplegarse entre lenguajes incluso cuando la habilidad de ejecución específica es baja. La ventaja comparativa de los generalistas en razonamiento podría, por tanto, volverse aprovechable en dominios que antes quedaban bloqueados por costos de implementación especializada.
 
-This is **not** evidence that developers acquire language skill, and it is not a definitive causal effect. Adoption is voluntary and can coincide with an unfamiliar-language project shock. The estimates are event-time associations whose specialist pattern and robustness checks support—but do not identify—the delegation mechanism.
+Esto **no** es evidencia de que los desarrolladores adquieran habilidad en el lenguaje, ni es un efecto causal definitivo. La adopción es voluntaria y puede coincidir con un shock de proyecto en un lenguaje desconocido. Las estimaciones son asociaciones en tiempo de evento; su patrón por especialistas y sus chequeos de robustez respaldan el mecanismo de delegación, aunque no lo identifican.
 
-## Repository map
+## Mapa del repositorio
 
 ```text
 ai-03-quispe/
@@ -122,12 +122,12 @@ ai-03-quispe/
 ├── analysis/symbolic_audit.py
 ├── extensions.md
 ├── hand/README.md
-├── lean/                         # full QX26AgenticDelegation EconCSLib output (5/5 proofs)
+├── lean/                         # salida completa de EconCSLib QX26AgenticDelegation (5/5 pruebas)
 ├── paper/quispe-xu-2026.pdf
-├── presentation.tex/.pdf        # short deck
+├── presentation.tex/.pdf        # deck corto
 ├── extended-presentation.tex/.pdf
 ├── prompts.md
 └── LICENSE.md
 ```
 
-The student must later add **their own handwritten photo** under `hand/`; no generated substitute counts.
+Falta que el estudiante agregue después **su propia foto manuscrita** en `hand/`; ningún sustituto generado cuenta.
