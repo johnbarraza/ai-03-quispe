@@ -1,7 +1,7 @@
 \documentclass[aspectratio=169,10pt]{beamer}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
+\usepackage[english,spanish]{babel}
 \usepackage{amsmath,amssymb,booktabs,graphicx,listings,tikz}
 \usetikzlibrary{arrows.meta,positioning}
 
@@ -13,13 +13,13 @@
 \setbeamercolor{block body}{fg=Ink,bg=Cloud}\setbeamercolor{alerted text}{fg=Gold}
 \setbeamertemplate{navigation symbols}{}\setbeamertemplate{itemize item}{\color{Mint}$\blacktriangleright$}
 \setbeamertemplate{footline}{\leavevmode\hbox{%
-\begin{beamercolorbox}[wd=.83\paperwidth,ht=2.7ex,dp=1.1ex,leftskip=1em]{author in head/foot}\color{white!80!Navy}Quispe \& Xu (2026) · presentation\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.83\paperwidth,ht=2.7ex,dp=1.1ex,leftskip=1em]{author in head/foot}\color{white!80!Navy}Quispe \& Xu (2026) · presentación\end{beamercolorbox}%
 \begin{beamercolorbox}[wd=.17\paperwidth,ht=2.7ex,dp=1.1ex,center]{date in head/foot}\insertframenumber/\inserttotalframenumber\end{beamercolorbox}}}
 \lstset{basicstyle=\ttfamily\scriptsize,keywordstyle=\color{Teal}\bfseries,commentstyle=\color{gray},columns=fullflexible,breaklines=true,showstringspaces=false}
 
 \title{Agentic Delegation and the Language Frontier}
-\subtitle{Model, evidence, verification boundary, and critique}
-\author{John Barraza}\institute{AI Economic Modelling · Repository 03}\date{September 2026}
+\subtitle{Modelo, evidencia, frontera de verificación y crítica}
+\author{John Barraza}\institute{AI Economic Modelling · Repositorio 03}\date{Septiembre 2026}
 
 \begin{document}
 
@@ -28,38 +28,40 @@
 \color{white}\vspace{1.2em}{\Huge\bfseries Agentic Delegation}\par\vspace{.3em}{\Large and the Language Frontier}\par\vspace{1.1em}{\large Quispe \& Xu (2026), arXiv:2605.25438v2}\par\vfill{\small John Barraza · \url{https://github.com/johnbarraza/ai-03-quispe}}
 \end{frame}
 
-\begin{frame}{1. Citation check: the discrepancy is real}
-\textbf{Current v2:} Alexander Quispe and Kevin Xu, “Agentic Delegation and the Language Frontier of Software Developers: A Model and Evidence from Claude Code on GitHub,” July 8, 2026.
+\begin{frame}{1. La cita: la discrepancia es real}
+\textbf{Versión actual (v2):} Alexander Quispe y Kevin Xu, ``Agentic Delegation and the Language Frontier of Software Developers: A Model and Evidence from Claude Code on GitHub'', 8 de julio de 2026.
 \vspace{.8em}
 \begin{columns}[T,onlytextwidth]
-\begin{column}{.48\textwidth}\begin{block}{Earlier circulation}“Coding Beyond Your Training: Claude Code and the Technological Frontier of Software Developers,” Alexander Quispe only.\end{block}\end{column}
-\begin{column}{.48\textwidth}\begin{alertblock}{Correct status}Preliminary, unrefereed \textbf{arXiv economics preprint}; not NBER. v1: May 25. v2: July 7; PDF dated July 8.\end{alertblock}\end{column}
+\begin{column}{.48\textwidth}\begin{block}{Circulación anterior}``Coding Beyond Your Training: Claude Code and the Technological Frontier of Software Developers'', solo Alexander Quispe.\end{block}\end{column}
+\begin{column}{.48\textwidth}\begin{alertblock}{Estado correcto}Preprint de economía en \textbf{arXiv}, preliminar y no arbitrado; no es NBER. v1: 25 may. v2: 7 jul; PDF fechado 8 jul.\end{alertblock}\end{column}
 \end{columns}
+\vspace{.6em}
+\small Verifiqué contra arXiv en vez de creer al modelo: cambió el título, se agregó a Kevin Xu y la muestra pasó de 5,825 a 5,346.
 \end{frame}
 
-\begin{frame}{2. Question, claim, and non-claim}
-\begin{block}{Research question}Does agentic AI expand the languages in which a developer can ship working code, beyond accelerating work in familiar languages?\end{block}
+\begin{frame}{2. Pregunta, afirmación y no-afirmación}
+\begin{block}{Pregunta de investigación}¿La IA agéntica amplía los lenguajes en los que un desarrollador puede entregar código que funciona, más allá de acelerarlo en los que ya conoce?\end{block}
 \vspace{.5em}
-\textbf{Claim:} the developer's observed \alert{production frontier} expands.
-\vspace{.5em}
-
-\textbf{Non-claim:} the developer learns to code unassisted in the new language. Delegated output remains joint production: the human selects, specifies, verifies, and ships.
+\textbf{Afirmación:} se expande la \alert{frontera de producción} observada del desarrollador.
 \vspace{.5em}
 
-\textbf{Unit:} developer $i$ × language $k$ × month $t$.
+\textbf{No-afirmación:} que el desarrollador aprenda a programar sin ayuda en el lenguaje nuevo. La salida delegada sigue siendo producción conjunta: el humano elige, especifica, verifica y entrega.
+\vspace{.5em}
+
+\textbf{Unidad de análisis:} desarrollador $i$ × lenguaje $k$ × mes $t$.
 \end{frame}
 
-\begin{frame}{3. Three capabilities}
+\begin{frame}{3. El problema del agente: tres capacidades}
 \begin{columns}[T,onlytextwidth]
-\begin{column}{.31\textwidth}\begin{block}{Solo $S$}Expected human match $s\mu$, activation cost $b$, and CARA risk penalty from match uncertainty.\end{block}\end{column}
-\begin{column}{.31\textwidth}\begin{block}{Augmentation $C$}Adds $\gamma s-r_C$: suggestions are useful only with language-specific foothold $s$.\end{block}\end{column}
-\begin{column}{.31\textwidth}\begin{block}{Delegation $D$}Agent executes share $\lambda$; output uses general ability $a$, capability $z(A)$, verification cost $\kappa$, and agent-error risk.\end{block}\end{column}
+\begin{column}{.31\textwidth}\begin{block}{Solo $S$}Match humano esperado $s\mu$, costo de activación $b$ y penalización de riesgo CARA por la incertidumbre del match.\end{block}\end{column}
+\begin{column}{.31\textwidth}\begin{block}{Conversacional $C$}Suma $\gamma s-r_C$: las sugerencias sirven solo con un mínimo de habilidad $s$ en el lenguaje.\end{block}\end{column}
+\begin{column}{.31\textwidth}\begin{block}{Delegación $D$}El agente ejecuta una fracción $\lambda$; la salida usa habilidad general $a$, competencia $z(A)$, costo de verificación $\kappa$ y riesgo de error del agente.\end{block}\end{column}
 \end{columns}
 \vspace{.8em}
-\centering\large One modelling choice drives the result: \alert{AI supplies delegated execution, not merely a substitutable productivity input.}
+\centering\large Una sola decisión de modelado gobierna el resultado: \alert{la IA aporta ejecución delegada, no solo un insumo productivo sustituible.}
 \end{frame}
 
-\begin{frame}{4. The developer's choice is not effort}
+\begin{frame}{4. La elección no es esfuerzo}
 \[
 M^1=\{S,C\},\qquad M^2=\{S,C,D\},
 \]
@@ -67,196 +69,190 @@ M^1=\{S,C\},\qquad M^2=\{S,C,D\},
 V^g_{ikt}=\max_{m\in M^g}V^m_{ikt},\qquad
 Z^g_{ikt}=\mathbf 1\{V^g_{ikt}\ge0\},\qquad N^g_{it}=\sum_k Z^g_{ikt}.
 \]
-\begin{block}{Economic decision}
-Given an opportunity, choose the mode with the highest certainty-equivalent surplus, then enter only if that surplus is nonnegative.
+\begin{block}{Decisión económica}
+Dada una oportunidad, se elige el modo con el mayor excedente en equivalente de certeza y se entra solo si ese excedente es no negativo.
 \end{block}
-\textbf{Key point:} there is no endogenous continuous effort variable. An “agent effort problem” belongs to a different paper/model.
+\textbf{Punto clave:} no hay variable continua de esfuerzo endógeno. Un ``problema de esfuerzo del agente'' pertenece a otro paper/modelo.
 \end{frame}
 
-\begin{frame}{5. Thresholds and the delegation advantage}
+\begin{frame}{5. Umbrales y la ventaja de delegación}
 \small
 \[
 T^S=b-s\mu+\frac{\rho s^2}{2\pi},\qquad
 T^1=T^S-\max\{0,\gamma s-r_C\}.
 \]
-For unfamiliar $k$, Assumption 1 imposes $\gamma s-r_C\le0$, so $T^1=T^S$. Define
+Para $k$ desconocido, el Supuesto 1 impone $\gamma s-r_C\le0$, así que $T^1=T^S$. Se define
 \[
 B\equiv T^S-T^D
-=\underbrace{\lambda[az(A)-s\mu]}_{\text{execution substitution}}
--\underbrace{\kappa(a,s)-r_D}_{\text{verification + compute}}
-+\underbrace{\frac{\rho}{2}\left[\frac{(2\lambda-\lambda^2)s^2}{\pi}-\sigma_D^2\right]}_{\text{risk substitution}}.
+=\underbrace{\lambda[az(A)-s\mu]}_{\text{sustitución de ejecución}}
+-\underbrace{\kappa(a,s)-r_D}_{\text{verificación + cómputo}}
++\underbrace{\frac{\rho}{2}\left[\frac{(2\lambda-\lambda^2)s^2}{\pi}-\sigma_D^2\right]}_{\text{sustitución de riesgo}}.
 \]
-\begin{alertblock}{Condition}Delegation changes entry only when $B>0$. Better verification technology can enlarge the band; it does not guarantee a positive band everywhere.\end{alertblock}
+\begin{alertblock}{Condición}La delegación cambia la entrada solo cuando $B>0$. Mejor tecnología de verificación puede agrandar la banda; no garantiza una banda positiva en todos lados.\end{alertblock}
 \end{frame}
 
-\begin{frame}{6. Propositions 1--2}
-\textbf{Proposition 1 (weak frontier expansion).}
+\begin{frame}{6. Proposiciones 1--2 (resultado principal)}
+\textbf{Proposición 1 (expansión débil de la frontera).}
 \[
 M^1\subset M^2\Longrightarrow Z^2_{ikt}\ge Z^1_{ikt}\Longrightarrow N^2_{it}\ge N^1_{it}.
 \]
-The agent can always be ignored; strict expansion is not automatic.
+El agente siempre se puede ignorar; la expansión estricta no es automática.
 \vspace{.8em}
 
-\textbf{Proposition 2 (activation band).} For unfamiliar $k$, Assumption 1 and $B>0$ imply
+\textbf{Proposición 2 (banda de activación).} Para $k$ desconocido, el Supuesto 1 y $B>0$ implican
 \[
 \boxed{Z^2_{ikt}-Z^1_{ikt}=\mathbf 1\{T^D_{ikt}\le\omega_{ikt}<T^1_{ikt}\}}.
 \]
-With continuous conditional CDF $F$, activation probability is $F(T^1)-F(T^D)$.
+Con CDF condicional continua $F$, la probabilidad de activación es $F(T^1)-F(T^D)$.
 \end{frame}
 
-\begin{frame}{7. Proposition 3: stock and flow}
-If constant first-use hazards satisfy $p^2_{ik}\ge p^1_{ik}$, then
+\begin{frame}{7. Proposición 3: stock y flujo}
+Si los hazards de primer uso constantes cumplen $p^2_{ik}\ge p^1_{ik}$, entonces
 \[
 \Delta C_i(h)=\sum_{k\in U_i}\left[(1-p^1_{ik})^{h+1}-(1-p^2_{ik})^{h+1}\right]\ge0.
 \]
 \begin{columns}[T,onlytextwidth]
-\begin{column}{.48\textwidth}\begin{block}{Closed frontier}If $p^1=0<p^2$, the cumulative gap grows strictly and concavely over the observed horizon.\end{block}\end{column}
-\begin{column}{.48\textwidth}\begin{alertblock}{Endpoint/domain caveat}With $p^1>0$, monotonic growth needs the paper's additional “no catch-up” inequality; $p^2\ge p^1$ alone gives nonnegativity, not monotonicity.\end{alertblock}\end{column}
+\begin{column}{.48\textwidth}\begin{block}{Frontera cerrada}Si $p^1=0<p^2$, la brecha acumulada crece de forma estricta y cóncava sobre el horizonte observado.\end{block}\end{column}
+\begin{column}{.48\textwidth}\begin{alertblock}{Salvedad de dominio/extremos}Con $p^1>0$, el crecimiento monótono necesita la desigualdad extra de ``no catch-up''; $p^2\ge p^1$ sola da no-negatividad, no monotonía.\end{alertblock}\end{column}
 \end{columns}
 \end{frame}
 
-\begin{frame}{8. Data construction}
+\begin{frame}{8. Construcción de datos}
 \centering\small
 \begin{tabular}{lr}
-\toprule Object & Size \\
+\toprule Objeto & Tamaño \\
 \midrule
-Window & Jan 2024--Apr 2026 (28 months) \\
-Initial / estimation developers & 5,825 / \textbf{5,346} \\
-Treated / not-yet-treated control & \textbf{2,813 / 2,533} \\
-Developer-month rows & \textbf{149,688} \\
-Commits / developer--repository pairs & 3.2m / 133k \\
-Changed files classified by Linguist & \textbf{57m} \\
-Claude-coauthored detection universe & 7.8m commits \\
+Ventana & Ene 2024--Abr 2026 (28 meses) \\
+Desarrolladores inicial / estimación & 5,825 / \textbf{5,346} \\
+Tratados / control not-yet-treated & \textbf{2,813 / 2,533} \\
+Filas desarrollador-mes & \textbf{149,688} \\
+Commits / pares desarrollador--repositorio & 3.2m / 133k \\
+Archivos modificados clasificados con Linguist & \textbf{57m} \\
+Universo de detección con coautoría de Claude & 7.8m commits \\
 \bottomrule
 \end{tabular}
 \vspace{.8em}
-\textbf{Treatment:} first machine-readable Claude co-author trailer. Outcomes use non-merge commits and programming-language files.
+\textbf{Tratamiento:} primer trailer de coautoría de Claude legible por máquina. Los resultados usan commits no-merge y archivos de lenguajes de programación.
 \end{frame}
 
-\begin{frame}{9. Empirical strategy}
-\begin{block}{Estimator}
-Callaway--Sant'Anna group-time ATT, doubly robust, not-yet-treated comparisons, one-month anticipation, varying base periods, 1,000 developer-clustered multiplier-bootstrap draws.
+\begin{frame}{9. Estrategia empírica}
+\begin{block}{Estimador}
+ATT grupo-tiempo de Callaway--Sant'Anna, doblemente robusto, comparaciones not-yet-treated, un mes de anticipación, períodos base variables y 1,000 draws de bootstrap multiplicador agrupados por desarrollador.
 \end{block}
-\textbf{Four frontier outcomes:} monthly distinct languages, newly used languages, cumulative languages, and Shannon entropy. Repositories and commits are diagnostics.
+\textbf{Cuatro resultados de frontera:} lenguajes distintos por mes, lenguajes nuevos, lenguajes acumulados y entropía de Shannon. Repositorios y commits son diagnósticos.
 \vspace{.6em}
-\begin{alertblock}{Interpretation discipline}
-Conditional parallel trends handles staggered timing and observed pre-period differences. It does not handle a new-project shock that both induces Claude adoption and changes languages.
+\begin{alertblock}{Disciplina de interpretación}
+Las tendencias paralelas condicionales manejan el escalonamiento y las diferencias pre-período observadas. No manejan un shock de proyecto nuevo que a la vez induce adoptar Claude y cambia los lenguajes.
 \end{alertblock}
 \end{frame}
 
-\begin{frame}{10. Main numerical results}
+\begin{frame}{10. Resultados numéricos principales}
 \centering\scriptsize
 \begin{tabular}{lrrrr}
-\toprule Outcome & $e=0$ & $e=1$ & $e=2$ & Simple ATT \\
+\toprule Resultado & $e=0$ & $e=1$ & $e=2$ & ATT simple \\
 \midrule
-Active languages & 2.528 (.063) & 1.227 (.064) & .693 (.067) & 1.178 (.052) \\
-Newly used & 1.193 (.051) & .126 (.034) & $-.018$ (.038) & .294 (.030) \\
-Entropy & .382 (.009) & .189 (.011) & .102 (.012) & .172 (.010) \\
-Cumulative & 1.604 (.054) & 1.892 (.063) & 2.072 (.086) & 1.930 (.068) \\
-Repositories & 1.494 (.058) & .838 (.057) & .449 (.057) & .742 (.057) \\
-Monthly commits & 35.080 (2.085) & 21.046 (2.292) & 12.110 (2.609) & 18.677 (2.269) \\
+Lenguajes activos & 2.528 (.063) & 1.227 (.064) & .693 (.067) & 1.178 (.052) \\
+Nuevos usados & 1.193 (.051) & .126 (.034) & $-.018$ (.038) & .294 (.030) \\
+Entropía & .382 (.009) & .189 (.011) & .102 (.012) & .172 (.010) \\
+Acumulados & 1.604 (.054) & 1.892 (.063) & 2.072 (.086) & 1.930 (.068) \\
+Repositorios & 1.494 (.058) & .838 (.057) & .449 (.057) & .742 (.057) \\
+Commits mensuales & 35.080 (2.085) & 21.046 (2.292) & 12.110 (2.609) & 18.677 (2.269) \\
 \bottomrule
 \end{tabular}
 \vspace{.9em}
-\small Active languages roughly triple relative to the .90 pre-mean; new languages are nearly four times the .31 pre-flow. Cumulative languages have significant pre-trends and are descriptive.
+\small Los lenguajes activos casi se triplican frente a la media previa de .90; los nuevos son casi cuatro veces el flujo previo de .31. Los acumulados tienen pre-tendencias significativas y son descriptivos.
 \end{frame}
 
-\begin{frame}{11. Mechanism evidence: headroom}
+\begin{frame}{11. Evidencia de mecanismo: headroom}
 \centering\small
 \begin{tabular}{lrr}
-\toprule Adoption-month newly used languages & Specialist & Generalist \\
+\toprule Lenguajes nuevos en el mes de adopción & Especialista & Generalista \\
 \midrule
-High pre-adoption activity & \textbf{.981} (.084) & .301 (.100) \\
-Low pre-adoption activity & \textbf{2.388} (.099) & 1.015 (.092) \\
+Alta actividad pre-adopción & \textbf{.981} (.084) & .301 (.100) \\
+Baja actividad pre-adopción & \textbf{2.388} (.099) & 1.015 (.092) \\
 \bottomrule
 \end{tabular}
 \vspace{.9em}
-\begin{block}{Matches Proposition 4's headroom margin}
-Within activity halves, narrow-portfolio specialists have more unfamiliar candidates and show much larger first-use effects.
+\begin{block}{Coincide con el margen de headroom de la Proposición 4}
+Dentro de cada mitad de actividad, los especialistas de portafolio estrecho tienen más candidatos desconocidos y muestran efectos de primer uso mucho mayores.
 \end{block}
-The general-ability prediction is not cleanly supported: commit volume is a poor ability proxy and low-volume users show larger measured effects.
+La predicción sobre habilidad general no se apoya limpiamente: el volumen de commits es un proxy pobre de habilidad y los usuarios de bajo volumen muestran efectos medidos mayores.
 \end{frame}
 
-\begin{frame}{12. Robustness and what it cannot rule out}
+\begin{frame}{12. Robustez y qué no puede descartar}
 \begin{columns}[T,onlytextwidth]
 \begin{column}{.48\textwidth}
-\textbf{Survives:}
+\textbf{Sobrevive a:}
 \begin{itemize}
-\item removing first-Claude language;
-\item excluding all Claude commits;
-\item activity conditioning;
-\item stricter pre-activity filters;
-\item competing-agent screens;
-\item placebo dates.
+\item quitar el primer lenguaje con Claude;
+\item excluir todos los commits de Claude;
+\item condicionar por actividad;
+\item filtros pre-actividad más estrictos;
+\item descartar agentes competidores;
+\item fechas placebo.
 \end{itemize}
 \end{column}
 \begin{column}{.48\textwidth}
-\begin{alertblock}{Still unresolved}
-A developer may start an unfamiliar-language project and adopt Claude because of that same project. The observed jump can combine treatment with selection on a time-varying shock.
+\begin{alertblock}{Sin resolver}
+Un desarrollador puede empezar un proyecto en lenguaje desconocido y adoptar Claude por ese mismo proyecto. El salto observado puede mezclar tratamiento con selección sobre un shock variable en el tiempo.
 \end{alertblock}
-\textbf{Correct label:} sharp, robust event-time association consistent with delegation.
+\textbf{Etiqueta correcta:} asociación en tiempo de evento, nítida y robusta, consistente con delegación.
 \end{column}
 \end{columns}
 \end{frame}
 
-\begin{frame}{13. Symbolic check and handwritten derivation}
-\begin{columns}[T,onlytextwidth]
-\begin{column}{.49\textwidth}
-\textbf{SymPy result}
-\begin{block}{Exact identity}\texttt{simplify((T\_s - T\_d) - B) == 0}\end{block}
-Rational example: $T^D=-487/1250$, $T^S=81/100$, and band width $B=2999/2500>0$.
-\end{column}
-\begin{column}{.47\textwidth}
+\begin{frame}{13. Trabajo analítico: derivación a mano}
 \centering
-\IfFileExists{hand/derivacion.pdf}{\includegraphics[width=.9\linewidth,height=.62\textheight,keepaspectratio]{hand/derivacion.pdf}}{\fbox{\parbox[c][.43\textheight][c]{.82\linewidth}{\centering Handwritten derivation in\par\texttt{hand/derivacion.pdf}}}}
-\end{column}
-\end{columns}
+\IfFileExists{hand/derivacion.pdf}{\includegraphics[width=.6\linewidth,height=.72\textheight,keepaspectratio]{hand/derivacion.pdf}}{\fbox{\parbox[c][.5\textheight][c]{.7\linewidth}{\centering Derivación manuscrita en \texttt{hand/derivacion.pdf}}}}
+\vspace{.3em}
+
+{\small Derivación propia del equivalente de certeza CARA--Normal, $CE=m-\dfrac{\rho\sigma^2}{2}$ (Apéndice A.1), completando cuadrados en la integral gaussiana, y su conexión con los umbrales $T^S,T^D$ y la banda de activación. \href{https://github.com/johnbarraza/ai-03-quispe/blob/main/hand/derivacion.pdf}{\alert{Ver PDF completo de la derivación}}.}
 \end{frame}
 
-\begin{frame}[fragile]{14. Proposition 3: paper $\rightarrow$ Lean $\rightarrow$ proof}
+\begin{frame}[fragile]{14. Proposición 3: paper $\rightarrow$ Lean $\rightarrow$ prueba}
 \scriptsize
-\textbf{Paper statement.} If $0\le p^1_k\le p^2_k\le1$, then
-$\Delta C(s)=\sum_{k\in U}[(1-p^1_k)^{s+1}-(1-p^2_k)^{s+1}]\ge0$; when
-$U\ne\varnothing$ and $p^1_k=0<p^2_k<1$, the gap is strictly increasing and concave.
+\textbf{Enunciado del paper.} Si $0\le p^1_k\le p^2_k\le1$, entonces
+$\Delta C(s)=\sum_{k\in U}[(1-p^1_k)^{s+1}-(1-p^2_k)^{s+1}]\ge0$; cuando
+$U\ne\varnothing$ y $p^1_k=0<p^2_k<1$, la brecha es estrictamente creciente y cóncava.
 
-\textbf{Lean translation and proof fragment.}
-\begin{lstlisting}[language={},literate={₀}{{\ensuremath{_0}}}1 {₁}{{\ensuremath{_1}}}1 {₂}{{\ensuremath{_2}}}1 {≤}{{\ensuremath{\leq}}}1 {≥}{{\ensuremath{\geq}}}1 {·}{{\textbullet}}1 {⟨}{{\ensuremath{\langle}}}1 {⟩}{{\ensuremath{\rangle}}}1 {Δ}{{\ensuremath{\Delta}}}1]
+\textbf{Traducción a Lean y fragmento de prueba.}
+\begin{lstlisting}[language={},escapechar=@]
 theorem dynamic_cumulative_language_effect :
   dynamic_cumulative_language_effectSpec := by
-  intro Language _ unfamiliar p₁ p₂ hHazards
+  intro Language _ unfamiliar p@$_1$@ p@$_2$@ hHazards
   dsimp; constructor
-  · intro s                          -- weak gap: ΔC(s) ≥ 0
+  @$\cdot$@ intro s                       -- brecha debil: @$\Delta$@C(s) >= 0
     apply Finset.sum_nonneg; intro k hk
     have hkB := hHazards k hk
-    have h0  : 0 ≤ 1 - p₂ k := by linarith
-    have hle : 1 - p₂ k ≤ 1 - p₁ k := by linarith
-    have := pow_le_pow_left₀ h0 hle (s + 1)
+    have h0  : 0 <= 1 - p@$_2$@ k := by linarith
+    have hle : 1 - p@$_2$@ k <= 1 - p@$_1$@ k := by linarith
+    have := pow_le_pow_left@$_0$@ h0 hle (s + 1)
     linarith
-  · rintro ⟨hNe, hClosed⟩            -- closed frontier p₁=0<p₂:
-    -- strictMono_nat_of_lt_succ + pow_lt_pow_right_of_lt_one₀ => strict growth + concavity
+  @$\cdot$@ rintro @$\langle$@hNe, hClosed@$\rangle$@   -- frontera cerrada p@$_1$@=0<p@$_2$@:
+    -- strictMono_nat_of_lt_succ + pow_lt_pow_right_of_lt_one@$_0$@ => estricto + concavo
 \end{lstlisting}
-\textbf{Plain English.} A higher first-use hazard lowers every survival
-probability $(1-p)^{s+1}$; summing those nonnegative differences gives $\Delta C(s)\ge0$.
-Lean checks this \emph{exactly} under the paper's stated hypothesis $p^2\ge p^1$; the
-strict-increase and concavity half is proved on the closed-frontier benchmark $p^1=0<p^2$,
-precisely the domain the proposition conditions on---no extra assumption is smuggled in.
+\textbf{En palabras.} Un hazard de primer uso más alto reduce cada probabilidad de
+supervivencia $(1-p)^{s+1}$; sumar esas diferencias no negativas da $\Delta C(s)\ge0$.
+Lean lo verifica \emph{exacto} bajo la hipótesis del paper $p^2\ge p^1$; la mitad de
+crecimiento estricto y concavidad se prueba en el benchmark de frontera cerrada $p^1=0<p^2$,
+justo el dominio que condiciona la proposición, sin meter supuestos de más.
 
-\begin{block}{Verified build}
-\texttt{lake build QX26AgenticDelegation}: PASS (8318 jobs). Five of five
-selected endpoints compile with no \texttt{sorry}; EconCSLib \texttt{--fast}
-check also passed. Independent source-fidelity review is still pending, so status is partial.
+\begin{block}{Build verificado}
+\texttt{lake build QX26AgenticDelegation}: PASS (8318 jobs). Cinco de cinco
+endpoints seleccionados compilan sin \texttt{sorry}; el chequeo \texttt{--fast} de
+EconCSLib también pasó. Falta la revisión humana de fidelidad, por eso el estado es parcial.
 \end{block}
 \end{frame}
 
-\begin{frame}{15. Verdict}
+\begin{frame}{15. Veredicto}
 \Large
-The model cleanly shows how delegated execution can expand a \alert{production} frontier through a lower entry threshold.
+El modelo muestra con claridad cómo la ejecución delegada puede expandir una \alert{frontera de producción} bajando el umbral de entrada.
 \vspace{.8em}
 
 \normalsize
-The data show the predicted activation spike, accumulation pattern, and specialist headroom signature. They do not causally separate delegation from project-driven adoption, and they do not show skill acquisition.
+Los datos muestran el pico de activación predicho, el patrón de acumulación y la firma de headroom por especialistas. No separan causalmente la delegación de la adopción impulsada por proyecto, y no muestran adquisición de habilidad.
 \vfill
-\small Paper, derivations, and sources: \url{https://github.com/johnbarraza/ai-03-quispe}
+\small Paper, derivaciones y fuentes: \url{https://github.com/johnbarraza/ai-03-quispe}
 \end{frame}
 
 \end{document}

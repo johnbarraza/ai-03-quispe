@@ -1,33 +1,33 @@
-\frametitle{14. Proposition 3: paper $\rightarrow $ Lean $\rightarrow $ proof}
+\frametitle{14. Proposición 3: paper $\rightarrow $ Lean $\rightarrow $ prueba}
 \scriptsize
-\textbf{Paper statement.} If $0\le p^1_k\le p^2_k\le1$, then
-$\Delta C(s)=\sum_{k\in U}[(1-p^1_k)^{s+1}-(1-p^2_k)^{s+1}]\ge0$; when
-$U\ne\varnothing$ and $p^1_k=0<p^2_k<1$, the gap is strictly increasing and concave.
+\textbf{Enunciado del paper.} Si $0\le p^1_k\le p^2_k\le1$, entonces
+$\Delta C(s)=\sum_{k\in U}[(1-p^1_k)^{s+1}-(1-p^2_k)^{s+1}]\ge0$; cuando
+$U\ne\varnothing$ y $p^1_k=0<p^2_k<1$, la brecha es estrictamente creciente y cóncava.
 
-\textbf{Lean translation and proof fragment.}
-\begin{lstlisting}[language={},literate={₀}{{\ensuremath{_0}}}1 {₁}{{\ensuremath{_1}}}1 {₂}{{\ensuremath{_2}}}1 {≤}{{\ensuremath{\leq}}}1 {≥}{{\ensuremath{\geq}}}1 {·}{{\textbullet}}1 {⟨}{{\ensuremath{\langle}}}1 {⟩}{{\ensuremath{\rangle}}}1 {Δ}{{\ensuremath{\Delta}}}1]
+\textbf{Traducción a Lean y fragmento de prueba.}
+\begin{lstlisting}[language={},escapechar=@]
 theorem dynamic_cumulative_language_effect :
   dynamic_cumulative_language_effectSpec := by
-  intro Language _ unfamiliar p₁ p₂ hHazards
+  intro Language _ unfamiliar p@$_1$@ p@$_2$@ hHazards
   dsimp; constructor
-  · intro s                          -- weak gap: ΔC(s) ≥ 0
+  @$\cdot$@ intro s                       -- brecha debil: @$\Delta$@C(s) >= 0
     apply Finset.sum_nonneg; intro k hk
     have hkB := hHazards k hk
-    have h0  : 0 ≤ 1 - p₂ k := by linarith
-    have hle : 1 - p₂ k ≤ 1 - p₁ k := by linarith
-    have := pow_le_pow_left₀ h0 hle (s + 1)
+    have h0  : 0 <= 1 - p@$_2$@ k := by linarith
+    have hle : 1 - p@$_2$@ k <= 1 - p@$_1$@ k := by linarith
+    have := pow_le_pow_left@$_0$@ h0 hle (s + 1)
     linarith
-  · rintro ⟨hNe, hClosed⟩            -- closed frontier p₁=0<p₂:
-    -- strictMono_nat_of_lt_succ + pow_lt_pow_right_of_lt_one₀ => strict growth + concavity
+  @$\cdot$@ rintro @$\langle$@hNe, hClosed@$\rangle$@   -- frontera cerrada p@$_1$@=0<p@$_2$@:
+    -- strictMono_nat_of_lt_succ + pow_lt_pow_right_of_lt_one@$_0$@ => estricto + concavo
 \end{lstlisting}
-\textbf{Plain English.} A higher first-use hazard lowers every survival
-probability $(1-p)^{s+1}$; summing those nonnegative differences gives $\Delta C(s)\ge0$.
-Lean checks this \emph{exactly} under the paper's stated hypothesis $p^2\ge p^1$; the
-strict-increase and concavity half is proved on the closed-frontier benchmark $p^1=0<p^2$,
-precisely the domain the proposition conditions on---no extra assumption is smuggled in.
+\textbf{En palabras.} Un hazard de primer uso más alto reduce cada probabilidad de
+supervivencia $(1-p)^{s+1}$; sumar esas diferencias no negativas da $\Delta C(s)\ge0$.
+Lean lo verifica \emph{exacto} bajo la hipótesis del paper $p^2\ge p^1$; la mitad de
+crecimiento estricto y concavidad se prueba en el benchmark de frontera cerrada $p^1=0<p^2$,
+justo el dominio que condiciona la proposición, sin meter supuestos de más.
 
-\begin{block}{Verified build}
-\texttt{lake build QX26AgenticDelegation}: PASS (8318 jobs). Five of five
-selected endpoints compile with no \texttt{sorry}; EconCSLib \texttt{--fast}
-check also passed. Independent source-fidelity review is still pending, so status is partial.
+\begin{block}{Build verificado}
+\texttt{lake build QX26AgenticDelegation}: PASS (8318 jobs). Cinco de cinco
+endpoints seleccionados compilan sin \texttt{sorry}; el chequeo \texttt{--fast} de
+EconCSLib también pasó. Falta la revisión humana de fidelidad, por eso el estado es parcial.
 \end{block}
