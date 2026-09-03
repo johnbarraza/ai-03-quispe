@@ -39,13 +39,13 @@
 \small Verifiqué contra arXiv en vez de creer al modelo: cambió el título, se agregó a Kevin Xu y la muestra pasó de 5,825 a 5,346.
 \end{frame}
 
-\begin{frame}{2. Pregunta, afirmación y no-afirmación}
+\begin{frame}{2. Pregunta, claim y no-claim}
 \begin{block}{Pregunta de investigación}¿La IA agéntica amplía los lenguajes en los que un desarrollador puede entregar código que funciona, más allá de acelerarlo en los que ya conoce?\end{block}
 \vspace{.5em}
-\textbf{Afirmación:} se expande la \alert{frontera de producción} observada del desarrollador.
+\textbf{Claim:} se expande la \alert{frontera de producción} (\emph{production frontier}) observada del desarrollador.
 \vspace{.5em}
 
-\textbf{No-afirmación:} que el desarrollador aprenda a programar sin ayuda en el lenguaje nuevo. La salida delegada sigue siendo producción conjunta: el humano elige, especifica, verifica y entrega.
+\textbf{No-claim (\emph{non-claim}):} que el desarrollador aprenda a programar sin ayuda en el lenguaje nuevo. La salida (\emph{output}) delegada sigue siendo producción conjunta: el humano elige, especifica, verifica y entrega.
 \vspace{.5em}
 
 \textbf{Unidad de análisis:} desarrollador $i$ × lenguaje $k$ × mes $t$.
@@ -118,7 +118,7 @@ Si los hazards de primer uso constantes cumplen $p^2_{ik}\ge p^1_{ik}$, entonces
 \end{frame}
 
 \begin{frame}{8. Construcción de datos}
-\centering\small
+\begin{center}\small
 \begin{tabular}{lr}
 \toprule Objeto & Tamaño \\
 \midrule
@@ -131,8 +131,9 @@ Archivos modificados clasificados con Linguist & \textbf{57m} \\
 Universo de detección con coautoría de Claude & 7.8m commits \\
 \bottomrule
 \end{tabular}
-\vspace{.8em}
-\textbf{Tratamiento:} primer trailer de coautoría de Claude legible por máquina. Los resultados usan commits no-merge y archivos de lenguajes de programación.
+\end{center}
+\vspace{.3em}
+\textbf{Tratamiento:} primer commit con un trailer de coautoría de Claude legible por máquina. Los resultados usan commits no-merge y archivos de lenguajes de programación (\emph{output} clasificado).
 \end{frame}
 
 \begin{frame}{9. Estrategia empírica}
@@ -147,7 +148,7 @@ Las tendencias paralelas condicionales manejan el escalonamiento y las diferenci
 \end{frame}
 
 \begin{frame}{10. Resultados numéricos principales}
-\centering\scriptsize
+\begin{center}\scriptsize
 \begin{tabular}{lrrrr}
 \toprule Resultado & $e=0$ & $e=1$ & $e=2$ & ATT simple \\
 \midrule
@@ -159,8 +160,9 @@ Repositorios & 1.494 (.058) & .838 (.057) & .449 (.057) & .742 (.057) \\
 Commits mensuales & 35.080 (2.085) & 21.046 (2.292) & 12.110 (2.609) & 18.677 (2.269) \\
 \bottomrule
 \end{tabular}
-\vspace{.9em}
-\small Los lenguajes activos casi se triplican frente a la media previa de .90; los nuevos son casi cuatro veces el flujo previo de .31. Los acumulados tienen pre-tendencias significativas y son descriptivos.
+\end{center}
+\vspace{.3em}
+{\small Los lenguajes activos casi se triplican frente a la media previa de .90; los nuevos (\emph{output} en un lenguaje por primera vez) son casi cuatro veces el flujo previo de .31. Los acumulados tienen pre-tendencias significativas y son descriptivos.}
 \end{frame}
 
 \begin{frame}{11. Evidencia de mecanismo: headroom}
