@@ -1,8 +1,8 @@
-# Hand derivation required
+# Derivación a mano
 
-Add your own photograph here before submission, for example `activation-band-derivation.jpg`.
+`derivacion.pdf` contiene la derivación manuscrita propia: el equivalente de
+certeza CARA-Normal del paper (Apéndice A.1), $CE = m - \rho\sigma^2/2$, obtenido
+completando cuadrados en la integral gaussiana, junto con su conexión a los
+umbrales de entrada del modelo ($T^S$, $T^D$) y la banda de activación.
 
-Recommended content: derive (T^S), (T^D), and (B=T^S-T^D); mark the interval ([T^D,T^S)); and write a one-sentence verdict on why Assumption 1 is needed. The extended deck will display the image automatically when it exists.
-
-Do not replace this requirement with an AI-generated image. The course requires the student’s own handwritten work.
-
+Es trabajo manuscrito propio, como exige el curso.
